@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"aU2vNcFCojHGV2A/TcD4Hw=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"8K15Hz6Nx69+LtXQDFutBI59obgz/jTGWmQpSIrtbv4="}
 
 @aws-cdk/aws-cloudwatch
 =======================

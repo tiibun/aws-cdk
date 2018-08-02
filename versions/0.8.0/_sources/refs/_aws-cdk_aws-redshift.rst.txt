@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"3ouijFUhZXaiFx70hWij8g=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"bFXgUosAHiLHzV7lTlmibVvM1jIGEOK0LPkruu4aFnM="}
 
 @aws-cdk/aws-redshift
 =====================

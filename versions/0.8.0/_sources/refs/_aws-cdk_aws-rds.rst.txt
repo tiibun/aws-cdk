@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"aaQKeSaLBNW9OF8gW3+2nQ=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"J070ZFeIcXwLrNekfigopzHhBbRndRyYcx8UPXF+4LM="}
 
 @aws-cdk/aws-rds
 ================
@@ -162,7 +162,7 @@ DatabaseCluster
       Access to the network connections
 
 
-      :type: :py:class:`@aws-cdk/aws-ec2.IConnections` *(readonly)*
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
 
 
    .. py:attribute:: securityGroupId
@@ -340,7 +340,7 @@ DatabaseClusterRef
       Access to the network connections
 
 
-      :type: :py:class:`@aws-cdk/aws-ec2.IConnections` *(readonly)* *(abstract)*
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)* *(abstract)*
 
 
    .. py:attribute:: clusterIdentifier

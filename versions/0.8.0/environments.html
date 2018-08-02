@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Environments and Authentication &mdash; AWS Cloud Development Kit 0.8.0+bb95676 documentation</title>
+  <title>Environments and Authentication &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.8.0+bb95676
+                0.8.0+0eede70
               </div>
             
           
@@ -88,11 +88,9 @@
 <li class="toctree-l2"><a class="reference internal" href="constructs.html">Constructs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stacks.html">Stacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logical-ids.html">Logical IDs</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Environments and Authentication</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#environmental-context">Environmental Context</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Environments and Authentication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Environmental Context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="assets.html">Assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="applets.html">Applets</a></li>
 </ul>
@@ -101,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Module Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
 </ul>
 
             
@@ -214,35 +212,6 @@ credentials for each invocation to <code class="docutils literal notranslate"><s
 individual accounts so that you can deploy to multiple accounts using one
 invocation of <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">deploy</span></code>, but this feature is not available yet.</p>
 </div>
-<div class="section" id="environmental-context">
-<span id="environment-context"></span><h2>Environmental Context<a class="headerlink" href="#environmental-context" title="Permalink to this headline">¶</a></h2>
-<p>When you synthesize a stack to create a AWS CloudFormation template, the AWS CDK might need information based on the
-environment (account and Region), such as the availability zones or AMIs available in the Region.
-To enable this feature, the AWS CDK Toolkit uses <em>context providers</em>,
-and saves the context information into <em>cdk.json</em>
-the first time you call <code class="code docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">synth</span></code>.</p>
-<p>The AWS CDK currently supports the following context providers.</p>
-<dl class="docutils">
-<dt><a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.AvailabilityZoneProvider" title="&#64;aws-cdk/cdk.AvailabilityZoneProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.AvailabilityZoneProvider</span></code></a></dt>
-<dd>Use this provider to get the list of all supported availability zones in this environment.
-For example, the following code iterates over all of the AZs in the current environment.</dd>
-</dl>
-<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span>const zones: string[] = new AvailabilityZoneProvider(this).availabilityZones;
-
-for (let zone of zones) {
-   // do somethning for each zone!
-}
-</pre></div>
-</div>
-<dl class="docutils">
-<dt><a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.SSMParameterProvider" title="&#64;aws-cdk/cdk.SSMParameterProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.SSMParameterProvider</span></code></a></dt>
-<dd>Use this provider to read values from the current Region’s SSM parameter store.
-For example, the follow code returns the value of the ‘my-awesome-value’ key:</dd>
-</dl>
-<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">ami</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SSMParameterProvider</span><span class="p">(</span><span class="n">this</span><span class="p">)</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s1">&#39;my-awesome-value&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
 </div>
 
 
@@ -287,7 +256,7 @@ For example, the follow code returns the value of the ‘my-awesome-value’ key
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.8.0+bb95676',
+            VERSION:'0.8.0+0eede70',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

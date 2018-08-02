@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"yQZ1XaOO4V9MOZNBoslQ3A=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"SuKwhZVWhmT3LsYo2lnWV9VZJVHT5JOFLeVslf0DHns="}
 
 @aws-cdk/aws-certificatemanager
 ===============================

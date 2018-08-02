@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"UVmjvIgx3DE3w4DW1xGXUQ=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"wjfmFRm8Iwd+Azi4RkGh5tEjLkC37fRfZGFnkBhwKNc="}
 
 @aws-cdk/aws-dynamodb
 =====================

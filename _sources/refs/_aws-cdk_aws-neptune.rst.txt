@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"8+/aFmH7Cv8mOd1YnmF2Ag=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"ut38iaaFtaKdLHu8ttR8Wri4sSYuRRq7ahS5R5whZe8="}
 
 @aws-cdk/aws-neptune
 ====================
@@ -69,7 +69,7 @@ NeptuneDatabase
 
    .. py:attribute:: connections
 
-      :type: :py:class:`@aws-cdk/aws-ec2.IConnections` *(readonly)*
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
 
 
 NeptuneDatabaseProps (interface)

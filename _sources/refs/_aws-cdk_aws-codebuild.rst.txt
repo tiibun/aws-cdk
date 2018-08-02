@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"pex4nlH7UkTu+8NhPzcczw=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"6bwvduC7f2fhMGWbBBgmPur7S2RcEMUBEkrQ/KIVOAs="}
 
 @aws-cdk/aws-codebuild
 ======================
@@ -226,7 +226,7 @@ CommonProjectProps (interface)
       Filename or contents of buildspec in JSON format.
 
 
-      :type: json or undefined
+      :type: any or undefined
 
 
    .. py:attribute:: role

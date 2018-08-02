@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"cTrN46CTKQxLw3/pLNoKYQ=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"B82yAIZim44RY9F388I9oLphMMwjPDmNyxpnwkPkhVo="}
 
 @aws-cdk/aws-applicationautoscaling
 ===================================

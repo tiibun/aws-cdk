@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"JwQNlp5eaJZaO51e0/mqDQ=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"yXacfIJR++C47dHfVi78w5+CU0q6qAycMj/2Vv9aDjI="}
 
 @aws-cdk/aws-directoryservice
 =============================

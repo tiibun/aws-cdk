@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"aA/fZncmH7KIBCqk/o1eaA=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"kzRv6CNFK2HrkWFOuOJE0MmGevy/5C11WJpzkecovLM="}
 
 @aws-cdk/cdk
 ============
@@ -851,7 +851,7 @@ Environment (interface)
 
    .. py:attribute:: account
 
-      The AWS accopunt ID for this environment. If not specified, the context parameter `default-account` is used.
+      The AWS account ID for this environment. If not specified, the context parameter `default-account` is used.
 
 
       :type: string or undefined

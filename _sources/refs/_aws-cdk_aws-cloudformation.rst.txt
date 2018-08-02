@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"X1cqpY9Hi6nrpUOmIbiTgg=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"nGn7bBv4ZqiVsYTIeNdCq/mXXSTADMHmQny2YPcH/iY="}
 
 @aws-cdk/aws-cloudformation
 ===========================

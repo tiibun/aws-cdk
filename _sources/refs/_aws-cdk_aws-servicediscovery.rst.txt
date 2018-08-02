@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"RcgLZ1A8APW2jaG0GzvZ9g=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"Uc5GjdbrBmUPQ8kX/Htyn4UwwkkyQpoQ5R8mkxc2Hpg="}
 
 @aws-cdk/aws-servicediscovery
 =============================

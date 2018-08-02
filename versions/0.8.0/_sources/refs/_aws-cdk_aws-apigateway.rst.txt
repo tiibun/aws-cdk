@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"k2KyWZPVUDPMrjc8hAZRAA=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"r8OEyZ4+qFCOnZlAgoXDcgaQV7fQ18U9sttqT3YSaW8="}
 
 @aws-cdk/aws-apigateway
 =======================

@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"Ny7/Qygl/tMt3GatA7rtmg=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"5BoRG2lmDVNw05EjSqwdXKLhcQLZjh6fCUo0OT7cKB4="}
 
 @aws-cdk/aws-custom-resources
 =============================

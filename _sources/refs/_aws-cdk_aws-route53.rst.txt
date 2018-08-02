@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"PIJnv2VUUjh4gaMXalaQwQ=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"vPqRsevtugZPmwnULXS6Kqd7IcQtlkOXWgp8FX0a+GY="}
 
 @aws-cdk/aws-route53
 ====================

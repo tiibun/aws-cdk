@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"SayQVybx6H/4S2EARb9KOw=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"YivZi/SEbhfGuMzCMeOgz/vRahgIVU8pxv2dWlFYrAo="}
 
 @aws-cdk/aws-servicecatalog
 ===========================

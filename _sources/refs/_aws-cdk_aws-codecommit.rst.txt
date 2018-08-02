@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"zdTFd+WOdG3NzH/pv0mJrQ=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"5cshVrEV2wigTLlkoW0BP1HR4jD4buj8Zv9RumL/FuI="}
 
 @aws-cdk/aws-codecommit
 =======================

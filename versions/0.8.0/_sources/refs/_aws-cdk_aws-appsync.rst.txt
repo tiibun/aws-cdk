@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"6E9kLOm2ZS+T6ECxc7Mdww=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"melXKl4VZZT6GjnqTouPBv9ujh/5lmxd3bQ93AFqLl0="}
 
 @aws-cdk/aws-appsync
 ====================

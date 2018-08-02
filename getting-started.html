@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hello, AWS CDK! &mdash; AWS Cloud Development Kit 0.8.0+bb95676 documentation</title>
+  <title>Hello, AWS CDK! &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.8.0+bb95676
+                0.8.0+0eede70
               </div>
             
           
@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#deploying-the-stack">Deploying the Stack</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#modifying-the-code">Modifying the Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#preparing-for-deployment">Preparing for Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-next">What Next?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
@@ -112,7 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Module Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
 </ul>
 
             
@@ -196,7 +197,7 @@ used to setup the <a class="reference internal" href="#credentials"><span class=
 </pre></div>
 </div>
 <p>You can run this command to see the currently installed version of the toolkit
-(This guide is aligned with 0.8.0+bb95676):</p>
+(This guide is aligned with 0.8.0+0eede70):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk --version
 </pre></div>
 </div>
@@ -324,11 +325,9 @@ is needed because we reference <strong>process.argv</strong> in our code):</p>
 <p>Add the following to your project’s <cite>pom.xml</cite> file:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>com.amazonaws.cdk<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>aws-cdk<span class="nt">&lt;/artifactId&gt;</span>
-
-        <span class="c">&lt;!-- make sure to use the CDK installed version here (i.e. &quot;0.7.3-beta&quot;) --&gt;</span>
-        <span class="nt">&lt;version&gt;</span>|cdk-version|<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>cdk<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span><span class="c">&lt;!-- cdk-version --&gt;</span><span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;/dependencies&gt;</span>
 </pre></div>
@@ -387,7 +386,7 @@ Java</div>
 <p>In <strong>src/main/java/com/acme/MyApp.java</strong>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.App</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -513,12 +512,10 @@ using <strong>node</strong>:</p>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
 <p>Specify a
 <strong>CLASSPATH</strong>, which contains both the compiled code and dependencies,
-to execute the Java program.
-Use <strong>maven-dependency-plugin</strong> to produce the file <strong>.classpath.txt</strong>
+to execute the Java program.</p>
+<p>Use <strong>maven-dependency-plugin</strong> in your <strong>pom.xml</strong> file to produce the file <strong>.classpath.txt</strong>
 whenever the project is compiled:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- pom.xml --&gt;</span>
-
-<span class="nt">&lt;build&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
     <span class="nt">&lt;plugins&gt;</span>
         <span class="c">&lt;!-- ... --&gt;</span>
 
@@ -554,7 +551,7 @@ ls .classpath.txt
 <span class="nb">exec</span> java -cp target/classes:<span class="k">$(</span>cat .classpath.txt<span class="k">)</span> com.acme.MyApp app <span class="nv">$@</span>
 </pre></div>
 </div>
-<p>Define the <code class="code docutils literal notranslate"><span class="pre">--</span> <span class="pre">app</span></code> option in <strong>cdk.json</strong>:</p>
+<p>Define the <code class="code docutils literal notranslate"><span class="pre">--app</span></code> option in <strong>cdk.json</strong>:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;app&quot;</span><span class="p">:</span> <span class="s2">&quot;/bin/bash ./app.sh&quot;</span>
 <span class="p">}</span>
@@ -641,8 +638,8 @@ Java</div>
 <p>In <strong>src/main/java/com/acme/MyStack.java</strong>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.App</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.Stack</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyStack</span> <span class="kd">extends</span> <span class="n">Stack</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">MyStack</span><span class="o">(</span><span class="kd">final</span> <span class="n">App</span> <span class="n">parent</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
@@ -654,7 +651,7 @@ Java</div>
 <p>In <strong>src/main/java/com/acme/MyApp.java</strong>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.App</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -682,9 +679,9 @@ together into a tree:</p>
 <li><strong>parent</strong> represents the parent construct. By specifying the parent construct
 upon initialization, constructs can obtain contextual information when they
 are initialized. For example, the region a stack is deployed to can be
-obtained via a call to <strong>Stack.find(this).requireRegion()</strong>. See Context for
-more information.</li>
-<li><strong>id</strong> is a local string that identifies the construct within the tree.
+obtained via a call to <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Stack.requireRegion" title="&#64;aws-cdk/cdk.Stack.requireRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Stack.find(this).requireRegion()</span></code></a>.
+See <a class="reference internal" href="context.html"><span class="doc">Environmental Context</span></a> for more information.</li>
+<li><strong>id</strong> is a string that locally identifies this construct within the tree.
 Constructs must have a unique ID amongst their siblings.</li>
 <li><strong>props</strong> is the set of initialization properties for this construct.</li>
 </ul>
@@ -729,7 +726,8 @@ stack:</p>
 </pre></div>
 </div>
 <p>Notice that your stack has been automatically associated with the default AWS
-account and region configured in the AWS CLI.</p>
+account and region configured in the AWS CLI. See <a class="reference internal" href="environments.html"><span class="doc">Environments and Authentication</span></a> for more
+details on how to associate stacks to environments.</p>
 </div>
 <div class="section" id="define-an-s3-bucket">
 <span id="define-bucket"></span><h2>Define an Amazon S3 Bucket<a class="headerlink" href="#define-an-s3-bucket" title="Permalink to this headline">¶</a></h2>
@@ -763,8 +761,15 @@ Java</div>
 </div>
 </div>
 <div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
-During beta, all AWS CDK modules are bundles into the <strong>aws-cdk</strong> Maven package, so
-there is no need to explicitly install the Amazon S3 library.</div>
+<p>Edit your <strong>pom.xml</strong> file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&lt;dependency&gt;
+    &lt;groupId&gt;software.amazon.awscdk&lt;/groupId&gt;
+    &lt;artifactId&gt;aws.s3&lt;/artifactId&gt;
+    &lt;version&gt;&lt;!-- cdk-version --&gt;&lt;/version&gt;
+&lt;/dependency&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Next, define an Amazon S3 bucket in the stack. Amazon S3 buckets are represented by
 the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bucket</span></code></a> class:</p>
@@ -821,10 +826,10 @@ Java</div>
 <p>In <strong>src/main/java/com/acme/MyStack.java</strong>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.App</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.Stack</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">com.amazonaws.cdk.aws.s3.Bucket</span><span class="o">;</span>
-<span class="hll"><span class="kn">import</span> <span class="nn">com.amazonaws.cdk.aws.s3.BucketProps</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.aws.s3.Bucket</span><span class="o">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">software.amazon.awscdk.aws.s3.BucketProps</span><span class="o">;</span>
 </span><span class="hll">
 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyStack</span> <span class="kd">extends</span> <span class="n">Stack</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="nf">MyStack</span><span class="o">(</span><span class="kd">final</span> <span class="n">App</span> <span class="n">parent</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
@@ -841,11 +846,18 @@ Java</div>
 </div>
 <p>A few things to notice:</p>
 <ul class="simple">
-<li><strong>s3.Bucket</strong> is construct. This means it’s initialization signature has
-<strong>parent</strong>, <strong>id</strong>, and <strong>props</strong>. In this case, the bucket is an immediate
-child of <strong>MyStack</strong>, and its ID is ‘MyFirstBucket’.</li>
-<li>Since the bucket’s <code class="code docutils literal notranslate"><span class="pre">versioned</span></code> property is <code class="code docutils literal notranslate"><span class="pre">true</span></code>,
-versioning is enabled on the bucket.</li>
+<li><a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bucket</span></code></a> is a construct.
+This means it’s initialization signature has <strong>parent</strong>, <strong>id</strong>, and <strong>props</strong>.
+In this case, the bucket is an immediate child of <strong>MyStack</strong>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MyFirstBucket</span></code> is the <strong>logical id</strong> of the bucket construct, <strong>not</strong> the physical name of the
+S3 bucket. The logical ID is used to uniquely identify resources in your stack
+across deployments. See <a class="reference internal" href="logical-ids.html"><span class="doc">Logical IDs</span></a> for more details on how to work
+with logical IDs. To specify a physical name for your bucket, you can set the
+<a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketProps.bucketName" title="&#64;aws-cdk/aws-s3.BucketProps.bucketName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bucketName</span></code></a> property when
+you define your bucket.</li>
+<li>Since the bucket’s <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketProps.versioned" title="&#64;aws-cdk/aws-s3.BucketProps.versioned"><code class="xref py py-meth docutils literal notranslate"><span class="pre">versioned</span></code></a>
+property is <code class="code docutils literal notranslate"><span class="pre">true</span></code>, <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">versioning</a>
+is enabled on the bucket.</li>
 </ul>
 <p>Compile your program:</p>
 <div class="sphinx-tabs docutils container">
@@ -879,8 +891,7 @@ Nothing to compile.</div>
 </div>
 <div class="section" id="synthesize-an-cfn-template">
 <span id="synthesize-template"></span><h2>Synthesize an AWS CloudFormation Template<a class="headerlink" href="#synthesize-an-cfn-template" title="Permalink to this headline">¶</a></h2>
-<p>Synthesize a
-AWS CloudFormation template for the stack (don’t forget to first compile the project if you have made any changes):</p>
+<p>Synthesize a AWS CloudFormation template for the stack:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk synth hello-cdk
 </pre></div>
 </div>
@@ -896,15 +907,26 @@ AWS CloudFormation template for the stack (don’t forget to first compile the p
         <span class="l l-Scalar l-Scalar-Plain">Properties</span><span class="p p-Indicator">:</span>
             <span class="l l-Scalar l-Scalar-Plain">VersioningConfiguration</span><span class="p p-Indicator">:</span>
                 <span class="l l-Scalar l-Scalar-Plain">Status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Enabled</span>
+    <span class="l l-Scalar l-Scalar-Plain">CDKMetadata</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="s">&#39;AWS::CDK::Metadata&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">Properties</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">Modules</span><span class="p p-Indicator">:</span> <span class="c1"># ...</span>
 </pre></div>
 </div>
 <p>You can see that the stack contains an <strong>AWS::S3::Bucket</strong> resource with the desired
 versioning configuration.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <strong>AWS::CDK::Metadata</strong> resource was automatically added to your template
+by the toolkit. This allows us to learn which libraries were used in your
+stack. See <a class="reference internal" href="tools.html#version-reporting"><span class="std std-ref">Version Reporting</span></a> for more details and how to
+<a class="reference internal" href="tools.html#version-reporting-opt-out"><span class="std std-ref">opt-out</span></a>.</p>
+</div>
 </div>
 <div class="section" id="deploying-the-stack">
 <span id="deploy-stack"></span><h2>Deploying the Stack<a class="headerlink" href="#deploying-the-stack" title="Permalink to this headline">¶</a></h2>
 <p>Use <strong>cdk deploy</strong> to deploy the stack:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk deploy hello-cdk
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk deploy
 </pre></div>
 </div>
 <p>The <strong>deploy</strong> command synthesizes an AWS CloudFormation template from the stack
@@ -988,7 +1010,7 @@ Nothing to compile.</div>
 <span id="prepare-deployment"></span><h2>Preparing for Deployment<a class="headerlink" href="#preparing-for-deployment" title="Permalink to this headline">¶</a></h2>
 <p>Before you deploy the updated stack, use the <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">diff</span></code> command to evaluate
 the difference between the AWS CDK app and the deployed stack:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk diff hello-cdk
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk diff
 </pre></div>
 </div>
 <p>The toolkit queries your AWS account for the current AWS CloudFormation template for the
@@ -1018,6 +1040,18 @@ encryption for the bucket:</p>
 ✅  Deployment of stack hello-cdk completed successfully
 </pre></div>
 </div>
+</div>
+<div class="section" id="what-next">
+<h2>What Next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Learn more about <a class="reference internal" href="concepts.html"><span class="doc">CDK Concepts</span></a></li>
+<li>Check out the <a class="reference external" href="https://github.com/awslabs/aws-cdk/tree/master/examples">examples directory</a> in your GitHub repository</li>
+<li>Learn about the rich APIs offered by the <a class="reference internal" href="aws-construct-lib.html"><span class="doc">AWS Construct Library</span></a></li>
+<li>Work directly with CloudFormation using the <a class="reference internal" href="cloudformation.html"><span class="doc">AWS CloudFormation Library</span></a></li>
+<li>Come talk to us on <a class="reference external" href="https://gitter.im/awslabs/aws-cdk">Gitter</a></li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
@@ -1063,7 +1097,7 @@ encryption for the bucket:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.8.0+bb95676',
+            VERSION:'0.8.0+0eede70',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

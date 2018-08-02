@@ -15,7 +15,7 @@ Reference
 #########
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    refs/_aws-cdk_assets
    refs/_aws-cdk_aws-apigateway

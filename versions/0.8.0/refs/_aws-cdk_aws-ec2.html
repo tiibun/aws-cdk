@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>@aws-cdk/aws-ec2 &mdash; AWS Cloud Development Kit 0.8.0+bb95676 documentation</title>
+  <title>@aws-cdk/aws-ec2 &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.8.0+bb95676
+                0.8.0+0eede70
               </div>
             
           
@@ -89,7 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Module Reference</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
@@ -149,7 +149,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#classicloadbalancerprops-interface">ClassicLoadBalancerProps (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connectionrule-interface">ConnectionRule (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#connections">Connections</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#defaultconnections">DefaultConnections</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#defaultinstancetenancy-enum">DefaultInstanceTenancy (enum)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#eipallocationid">EIPAllocationId</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#genericlinuximage">GenericLinuxImage</a></li>
@@ -157,7 +156,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#iclassicloadbalancertarget-interface">IClassicLoadBalancerTarget (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#iconnectable-interface">IConnectable (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#iconnectionpeer-interface">IConnectionPeer (interface)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#iconnections-interface">IConnections (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#idefaultconnectable-interface">IDefaultConnectable (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#imachineimagesource-interface">IMachineImageSource (interface)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#iportrange-interface">IPortRange (interface)</a></li>
@@ -641,10 +639,10 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <code class="docutils literal notranslate"><span class="pre">allowToDefaultPort()</span></code>.</p>
 <p>For example:</p>
 <div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// Port implicit in listener</span>
-<span class="p">(</span><span class="nx">listener</span><span class="p">.</span><span class="nx">connections</span> <span class="kr">as</span> <span class="nx">ec2</span><span class="p">.</span><span class="nx">DefaultConnections</span><span class="p">).</span><span class="nx">allowDefaultPortFromAnyIpv4</span><span class="p">(</span><span class="s1">&#39;Allow public&#39;</span><span class="p">);</span>
+<span class="nx">listener</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">allowDefaultPortFromAnyIpv4</span><span class="p">(</span><span class="s1">&#39;Allow public&#39;</span><span class="p">);</span>
 
 <span class="c1">// Port implicit in peer</span>
-<span class="p">(</span><span class="nx">fleet</span><span class="p">.</span><span class="nx">connections</span> <span class="kr">as</span> <span class="nx">ec2</span><span class="p">.</span><span class="nx">DefaultConnections</span><span class="p">).</span><span class="nx">allowToDefaultPort</span><span class="p">(</span><span class="nx">rdsDatabase</span><span class="p">,</span> <span class="s1">&#39;Fleet can access database&#39;</span><span class="p">);</span>
+<span class="nx">fleet</span><span class="p">.</span><span class="nx">connections</span><span class="p">.</span><span class="nx">allowToDefaultPort</span><span class="p">(</span><span class="nx">rdsDatabase</span><span class="p">,</span> <span class="s1">&#39;Fleet can access database&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -989,7 +987,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -1228,7 +1226,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -1304,7 +1302,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -1341,7 +1339,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -1427,7 +1425,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -1782,15 +1780,17 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <h3>Connections<a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="&#64;aws-cdk/aws-ec2.Connections">
-<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-ec2.</code><code class="descname">Connections</code><span class="sig-paren">(</span><em>securityGroup</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections" title="Permalink to this definition">¶</a></dt>
-<dd><p>Connections for an object that does not have default ports</p>
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-ec2.</code><code class="descname">Connections</code><span class="sig-paren">(</span><em>securityGroup</em><span class="optional">[</span>, <em>defaultPortRange</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manage the security group (firewall) for a connectable resource.  This object contains method to allow connections between objects that can allow connections.  The .allowDefaultPortXxx() methods are only available if the resource this object was created for has the concept of a default port range.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Implements:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>securityGroup</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.ISecurityGroup" title="&#64;aws-cdk/aws-ec2.ISecurityGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">ISecurityGroup</span></code></a>) – </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>securityGroup</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.ISecurityGroup" title="&#64;aws-cdk/aws-ec2.ISecurityGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">ISecurityGroup</span></code></a>) – </li>
+<li><strong>defaultPortRange</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IPortRange" title="&#64;aws-cdk/aws-ec2.IPortRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPortRange</span></code></a> or undefined) – </li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1904,47 +1904,9 @@ RDS database (it’s the port the database is accepting connections on).</p>
 </table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="&#64;aws-cdk/aws-ec2.Connections.connectionPeer">
-<code class="descname">connectionPeer</code><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections.connectionPeer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access to the peer that we’re connecting to  It’s convenient to put this on the Connections object since all participants in this protocol have one anyway, and the Connections objects have access to it, so they don’t need to implement two interfaces.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnectionPeer" title="&#64;aws-cdk/aws-ec2.IConnectionPeer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnectionPeer</span></code></a> <em>(readonly)</em></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="defaultconnections">
-<h3>DefaultConnections<a class="headerlink" href="#defaultconnections" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="&#64;aws-cdk/aws-ec2.DefaultConnections">
-<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-ec2.</code><code class="descname">DefaultConnections</code><span class="sig-paren">(</span><em>securityGroup</em>, <em>defaultPortRangeProvider</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.DefaultConnections" title="Permalink to this definition">¶</a></dt>
-<dd><p>A class to orchestrate connections that already has default ports</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a></p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>securityGroup</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.ISecurityGroup" title="&#64;aws-cdk/aws-ec2.ISecurityGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">ISecurityGroup</span></code></a>) – </li>
-<li><strong>defaultPortRangeProvider</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IDefaultConnectable" title="&#64;aws-cdk/aws-ec2.IDefaultConnectable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IDefaultConnectable</span></code></a>) – </li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
-<dt id="&#64;aws-cdk/aws-ec2.DefaultConnections.allowDefaultPortFrom">
-<code class="descname">allowDefaultPortFrom</code><span class="sig-paren">(</span><em>other</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.DefaultConnections.allowDefaultPortFrom" title="Permalink to this definition">¶</a></dt>
+<dt id="&#64;aws-cdk/aws-ec2.Connections.allowDefaultPortFrom">
+<code class="descname">allowDefaultPortFrom</code><span class="sig-paren">(</span><em>other</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections.allowDefaultPortFrom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allow connections from the peer on our default port  Even if the peer has a default port, we will always use our default port.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1961,8 +1923,8 @@ RDS database (it’s the port the database is accepting connections on).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="&#64;aws-cdk/aws-ec2.DefaultConnections.allowDefaultPortInternally">
-<code class="descname">allowDefaultPortInternally</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.DefaultConnections.allowDefaultPortInternally" title="Permalink to this definition">¶</a></dt>
+<dt id="&#64;aws-cdk/aws-ec2.Connections.allowDefaultPortInternally">
+<code class="descname">allowDefaultPortInternally</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections.allowDefaultPortInternally" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allow hosts inside the security group to connect to each other</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1975,8 +1937,8 @@ RDS database (it’s the port the database is accepting connections on).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="&#64;aws-cdk/aws-ec2.DefaultConnections.allowDefaultPortFromAnyIpv4">
-<code class="descname">allowDefaultPortFromAnyIpv4</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.DefaultConnections.allowDefaultPortFromAnyIpv4" title="Permalink to this definition">¶</a></dt>
+<dt id="&#64;aws-cdk/aws-ec2.Connections.allowDefaultPortFromAnyIpv4">
+<code class="descname">allowDefaultPortFromAnyIpv4</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections.allowDefaultPortFromAnyIpv4" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allow default connections from all IPv4 ranges</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1989,13 +1951,13 @@ RDS database (it’s the port the database is accepting connections on).</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="&#64;aws-cdk/aws-ec2.DefaultConnections.defaultPortRange">
-<code class="descname">defaultPortRange</code><a class="headerlink" href="#@aws-cdk/aws-ec2.DefaultConnections.defaultPortRange" title="Permalink to this definition">¶</a></dt>
+<dt id="&#64;aws-cdk/aws-ec2.Connections.connectionPeer">
+<code class="descname">connectionPeer</code><a class="headerlink" href="#@aws-cdk/aws-ec2.Connections.connectionPeer" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IPortRange" title="&#64;aws-cdk/aws-ec2.IPortRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPortRange</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnectionPeer" title="&#64;aws-cdk/aws-ec2.IConnectionPeer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnectionPeer</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -2218,7 +2180,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <dl class="class">
 <dt id="&#64;aws-cdk/aws-ec2.IConnectable">
 <em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-ec2.</code><code class="descname">IConnectable</code><a class="headerlink" href="#@aws-cdk/aws-ec2.IConnectable" title="Permalink to this definition">¶</a></dt>
-<dd><p>The goal of this module is to make possible to write statements like this:      <code class="docutils literal notranslate"><span class="pre">`ts</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">database.connections.allowFrom(fleet);</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">fleet.connections.allowTo(database);</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">rdgw.connections.allowFromCidrIp('0.3.1.5/86');</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">rgdw.connections.allowTrafficTo(fleet,</span> <span class="pre">new</span> <span class="pre">AllPorts());</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">`</span></code>  The insight here is that some connecting peers have information on what ports should be involved in the connection, and some don’t.  Constructs will make their <cite>connections</cite> property to be equal to an instance of either <cite>Connections</cite> or <cite>ConnectionsWithDefault</cite>. An object that has a Connections object</p>
+<dd><p>The goal of this module is to make possible to write statements like this:      <code class="docutils literal notranslate"><span class="pre">`ts</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">database.connections.allowFrom(fleet);</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">fleet.connections.allowTo(database);</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">rdgw.connections.allowFromCidrIp('0.3.1.5/86');</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">rgdw.connections.allowTrafficTo(fleet,</span> <span class="pre">new</span> <span class="pre">AllPorts());</span>&#160; <span class="pre">*</span>&#160;&#160;&#160; <span class="pre">`</span></code>  The insight here is that some connecting peers have information on what ports should be involved in the connection, and some don’t. An object that has a Connections object</p>
 <dl class="attribute">
 <dt id="&#64;aws-cdk/aws-ec2.IConnectable.connections">
 <code class="descname">connections</code><a class="headerlink" href="#@aws-cdk/aws-ec2.IConnectable.connections" title="Permalink to this definition">¶</a></dt>
@@ -2226,7 +2188,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -2278,67 +2240,6 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="iconnections-interface">
-<h3>IConnections (interface)<a class="headerlink" href="#iconnections-interface" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="&#64;aws-cdk/aws-ec2.IConnections">
-<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-ec2.</code><code class="descname">IConnections</code><a class="headerlink" href="#@aws-cdk/aws-ec2.IConnections" title="Permalink to this definition">¶</a></dt>
-<dd><p>An object that encapsulates connection logic  The IConnections object both has knowledge on what peer to use, as well as how to add connection rules.</p>
-<dl class="attribute">
-<dt id="&#64;aws-cdk/aws-ec2.IConnections.connectionPeer">
-<code class="descname">connectionPeer</code><a class="headerlink" href="#@aws-cdk/aws-ec2.IConnections.connectionPeer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access to the peer that we’re connecting to  It’s convenient to put this on the Connections object since all participants in this protocol have one anyway, and the Connections objects have access to it, so they don’t need to implement two interfaces.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnectionPeer" title="&#64;aws-cdk/aws-ec2.IConnectionPeer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnectionPeer</span></code></a> <em>(readonly)</em></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="&#64;aws-cdk/aws-ec2.IConnections.allowTo">
-<code class="descname">allowTo</code><span class="sig-paren">(</span><em>other</em>, <em>portRange</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.IConnections.allowTo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Allow connections to the peer on the given port</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>other</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnectable" title="&#64;aws-cdk/aws-ec2.IConnectable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnectable</span></code></a>) – </li>
-<li><strong>portRange</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IPortRange" title="&#64;aws-cdk/aws-ec2.IPortRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPortRange</span></code></a>) – </li>
-<li><strong>description</strong> (<em>string</em>) – </li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="&#64;aws-cdk/aws-ec2.IConnections.allowFrom">
-<code class="descname">allowFrom</code><span class="sig-paren">(</span><em>other</em>, <em>portRange</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.IConnections.allowFrom" title="Permalink to this definition">¶</a></dt>
-<dd><p>Allow connections from the peer on the given port</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>other</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnectable" title="&#64;aws-cdk/aws-ec2.IConnectable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnectable</span></code></a>) – </li>
-<li><strong>portRange</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IPortRange" title="&#64;aws-cdk/aws-ec2.IPortRange"><code class="xref py py-class docutils literal notranslate"><span class="pre">IPortRange</span></code></a>) – </li>
-<li><strong>description</strong> (<em>string</em>) – </li>
-</ul>
-</td>
 </tr>
 </tbody>
 </table>
@@ -3270,7 +3171,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a> <em>(readonly)</em></td>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a> <em>(readonly)</em></td>
 </tr>
 </tbody>
 </table>
@@ -3651,12 +3552,12 @@ RDS database (it’s the port the database is accepting connections on).</p>
 <dl class="class">
 <dt id="&#64;aws-cdk/aws-ec2.SecurityGrouplessConnections">
 <em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-ec2.</code><code class="descname">SecurityGrouplessConnections</code><span class="sig-paren">(</span><em>connectionPeer</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-ec2.SecurityGrouplessConnections" title="Permalink to this definition">¶</a></dt>
-<dd><p>This object is used by peers who don’t allow reverse connections  It still has an associated connection peer, but that peer does not have any security groups to add connections to.</p>
+<dd><p>This object is used by peers who don’t allow reverse connections.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Implements:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnections" title="&#64;aws-cdk/aws-ec2.IConnections"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnections</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-ec2.Connections" title="&#64;aws-cdk/aws-ec2.Connections"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connections</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connectionPeer</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-ec2.IConnectionPeer" title="&#64;aws-cdk/aws-ec2.IConnectionPeer"><code class="xref py py-class docutils literal notranslate"><span class="pre">IConnectionPeer</span></code></a>) – </td>
 </tr>
@@ -13836,7 +13737,7 @@ RDS database (it’s the port the database is accepting connections on).</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.8.0+bb95676',
+            VERSION:'0.8.0+0eede70',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

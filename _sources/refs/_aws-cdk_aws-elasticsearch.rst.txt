@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"6Ps1x6NYeBoscDYMC8XUOg=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"QIGyonQcj5skQPmVYD6RHgbqAh8uTAMJntJFu2HYO6k="}
 
 @aws-cdk/aws-elasticsearch
 ==========================

@@ -1,4 +1,4 @@
-.. @jsii-pacmak:meta@ {"fingerprint":"ZirCCPdShdsP+DwdfvVT6g=="}
+.. @jsii-pacmak:meta@ {"fingerprint":"vF4EEca+BW43heh03z0XOXhnJE1JcOFs7kezvy5CZH0="}
 
 @aws-cdk/aws-s3
 ===============
