@@ -33,8 +33,11 @@ command-line toolkit and language bindings.
 used to setup the credentials and region for your AWS account,
 which must be specified to use the toolkit.
 See :ref:`credentials <credentials>` for information on using the AWS CLI to set your credentials.
+<<<<<<< 4dae9dc8b01aeea72bc08f0b99081a5090a63bdc
 
 .. _setup_install:
+=======
+>>>>>>> Expanded early info on using CLI to set creds/region
 
 Install the command-line toolkit
 --------------------------------
