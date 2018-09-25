@@ -1,10 +1,10 @@
-import actions = require('@aws-cdk/aws-codepipeline-api');
+import codepipeline = require('@aws-cdk/aws-codepipeline-api');
 import cdk = require('@aws-cdk/cdk');
 
 /**
  * Construction properties of the {@link PipelineDeployAction CodeDeploy deploy CodePipeline Action}.
  */
-export interface PipelineDeployActionProps extends actions.CommonActionProps {
+export interface PipelineDeployActionProps extends codepipeline.CommonActionConstructProps {
     /**
      * The name of the CodeDeploy application to deploy to.
      *
@@ -24,13 +24,14 @@ export interface PipelineDeployActionProps extends actions.CommonActionProps {
     /**
      * The source to use as input for deployment.
      */
-    inputArtifact: actions.Artifact;
+    inputArtifact: codepipeline.Artifact;
 }
 
-export class PipelineDeployAction extends actions.DeployAction {
+export class PipelineDeployAction extends codepipeline.DeployAction {
     constructor(parent: cdk.Construct, id: string, props: PipelineDeployActionProps) {
         super(parent, id, {
             stage: props.stage,
+            runOrder: props.runOrder,
             artifactBounds: { minInputs: 1, maxInputs: 1, minOutputs: 0, maxOutputs: 0 },
             provider: 'CodeDeploy',
             inputArtifact: props.inputArtifact,
