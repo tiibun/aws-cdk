@@ -1,4 +1,5 @@
 import autoscaling = require("@aws-cdk/aws-autoscaling");
+import codedeploylb = require("@aws-cdk/aws-codedeploy-api");
 import ec2 = require("@aws-cdk/aws-ec2");
 import s3 = require("@aws-cdk/aws-s3");
 import cdk = require("@aws-cdk/cdk");
@@ -143,6 +144,15 @@ export interface ServerDeploymentGroupProps {
      * @see https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install.html
      */
     installAgent?: boolean;
+
+    /**
+     * The load balancer to place in front of this Deployment Group.
+     * Can be either a classic Elastic Load Balancer,
+     * or an Application Load Balancer / Network Load Balancer Target Group.
+     *
+     * @default the Deployment Group will not have a load balancer defined
+     */
+    loadBalancer?: codedeploylb.LoadBalancerProvider;
 }
 
 /**
@@ -188,6 +198,7 @@ export class ServerDeploymentGroup extends ServerDeploymentGroupRef {
                 this._autoScalingGroups.length === 0
                     ? undefined
                     : this._autoScalingGroups.map(asg => asg.autoScalingGroupName())),
+            loadBalancerInfo: this.loadBalancerInfo(props.loadBalancer),
         });
 
         this.deploymentGroupName = resource.deploymentGroupName;
@@ -242,6 +253,24 @@ export class ServerDeploymentGroup extends ServerDeploymentGroupRef {
                     '$TEMPDIR\\codedeploy-agent.msi /quiet /l c:\\temp\\host-agent-install-log.txt',
                 );
                 break;
+        }
+    }
+
+    private loadBalancerInfo(lbProvider?: codedeploylb.LoadBalancerProvider):
+            cloudformation.DeploymentGroupResource.LoadBalancerInfoProperty | undefined {
+        if (!lbProvider) {
+            return undefined;
+        }
+
+        switch (lbProvider.codeDeployLoadBalancerGeneration()) {
+            case codedeploylb.LoadBalancerGeneration.FIRST:
+                return {
+                    elbInfoList: [
+                        { name : lbProvider.codeDeployLoadBalancerName() },
+                    ],
+                };
+            case codedeploylb.LoadBalancerGeneration.SECOND:
+                throw new Error('not implemented yet');
         }
     }
 }

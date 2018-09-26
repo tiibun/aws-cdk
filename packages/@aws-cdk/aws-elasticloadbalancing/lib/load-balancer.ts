@@ -1,3 +1,4 @@
+import codedeploy = require('@aws-cdk/aws-codedeploy-api');
 import { AnyIPv4, Connections, IConnectable, IPortRange, SecurityGroup, SecurityGroupRef,
     TcpPort, VpcNetworkRef, VpcSubnetRef  } from '@aws-cdk/aws-ec2';
 import cdk = require('@aws-cdk/cdk');
@@ -185,7 +186,7 @@ export enum LoadBalancingProtocol {
  *
  * Routes to a fleet of of instances in a VPC.
  */
-export class LoadBalancer extends cdk.Construct implements IConnectable {
+export class LoadBalancer extends cdk.Construct implements IConnectable, codedeploy.LoadBalancerProvider {
     /**
      * Control all connections from and to this load balancer
      */
@@ -284,6 +285,14 @@ export class LoadBalancer extends cdk.Construct implements IConnectable {
 
     public get loadBalancerSourceSecurityGroupOwnerAlias() {
         return this.elb.loadBalancerSourceSecurityGroupOwnerAlias;
+    }
+
+    public codeDeployLoadBalancerGeneration(): codedeploy.LoadBalancerGeneration {
+        return codedeploy.LoadBalancerGeneration.FIRST;
+    }
+
+    public codeDeployLoadBalancerName(): string {
+        return this.loadBalancerName;
     }
 
     /**
