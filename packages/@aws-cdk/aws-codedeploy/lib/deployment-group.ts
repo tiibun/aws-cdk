@@ -266,11 +266,15 @@ export class ServerDeploymentGroup extends ServerDeploymentGroupRef {
             case codedeploylb.LoadBalancerGeneration.FIRST:
                 return {
                     elbInfoList: [
-                        { name : lbProvider.codeDeployLoadBalancerName() },
+                        { name: lbProvider.codeDeployLoadBalancerName() },
                     ],
                 };
             case codedeploylb.LoadBalancerGeneration.SECOND:
-                throw new Error('not implemented yet');
+                return {
+                    targetGroupInfoList: [
+                        { name: lbProvider.codeDeployLoadBalancerName() },
+                    ]
+                };
         }
     }
 }

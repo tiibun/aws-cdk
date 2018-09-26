@@ -1,3 +1,4 @@
+import codedeploy = require('@aws-cdk/aws-codedeploy-api');
 import ec2 = require('@aws-cdk/aws-ec2');
 import cdk = require('@aws-cdk/cdk');
 import { cloudformation } from '../elasticloadbalancingv2.generated';
@@ -119,7 +120,7 @@ export interface HealthCheck {
 /**
  * Define the target of a load balancer
  */
-export abstract class BaseTargetGroup extends cdk.Construct implements ITargetGroup {
+export abstract class BaseTargetGroup extends cdk.Construct implements ITargetGroup, codedeploy.LoadBalancerProvider {
     /**
      * The ARN of the target group
      */
@@ -232,6 +233,14 @@ export abstract class BaseTargetGroup extends cdk.Construct implements ITargetGr
      */
     public addDependency(...other: cdk.IDependable[]) {
         this.resource.addDependency(...other);
+    }
+
+    public codeDeployLoadBalancerGeneration(): codedeploy.LoadBalancerGeneration {
+        return codedeploy.LoadBalancerGeneration.SECOND;
+    }
+
+    public codeDeployLoadBalancerName(): string {
+        return this.targetGroupName;
     }
 
     /**
