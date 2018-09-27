@@ -453,12 +453,18 @@
           }
         ],
         "SecurityGroupIngress": [],
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "aws-cdk-ec2-integ/Fleet"
+          }
+        ],
         "VpcId": {
           "Ref": "VPCB9E5F0B4"
         }
       }
     },
-    "FleetInstanceSecurityGroupPort80LBtofleetDC12B17A": {
+    "FleetInstanceSecurityGroupfromawscdkec2integLBSecurityGroupDEF4F99A8025E910CB": {
       "Type": "AWS::EC2::SecurityGroupIngress",
       "Properties": {
         "IpProtocol": "tcp",
@@ -544,6 +550,13 @@
             "Ref": "LB8A12904C"
           }
         ],
+        "Tags": [
+          {
+            "Key": "Name",
+            "PropagateAtLaunch": true,
+            "Value": "aws-cdk-ec2-integ/Fleet"
+          }
+        ],
         "VPCZoneIdentifier": [
           {
             "Ref": "VPCPrivateSubnet1Subnet8BCA10E0"
@@ -576,12 +589,13 @@
             "ToPort": 80
           }
         ],
+        "Tags": [],
         "VpcId": {
           "Ref": "VPCB9E5F0B4"
         }
       }
     },
-    "LBSecurityGroupPort80LBtofleet0986F2E8": {
+    "LBSecurityGrouptoawscdkec2integFleetInstanceSecurityGroupB03BE84D80B371C596": {
       "Type": "AWS::EC2::SecurityGroupEgress",
       "Properties": {
         "GroupId": {
