@@ -27,6 +27,7 @@ export async function deployStack(stack: cxapi.SynthesizedStack,
                                   sdk: SDK,
                                   toolkitInfo?: ToolkitInfo,
                                   deployName?: string,
+                                  roleArn?: string,
                                   quiet: boolean = false): Promise<DeployStackResult> {
   if (!stack.environment) {
     throw new Error(`The stack ${stack.name} does not have an environment`);
@@ -53,7 +54,8 @@ export async function deployStack(stack: cxapi.SynthesizedStack,
     TemplateBody: bodyParameter.TemplateBody,
     TemplateURL: bodyParameter.TemplateURL,
     Parameters: params,
-    Capabilities: [ 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM' ]
+    Capabilities: [ 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM' ],
+    RoleARN: roleArn,
   }).promise();
   debug('Initiated creation of changeset: %s; waiting for it to finish creating...', changeSet.Id);
   const changeSetDescription = await waitForChangeSet(cfn, deployName, changeSetName);

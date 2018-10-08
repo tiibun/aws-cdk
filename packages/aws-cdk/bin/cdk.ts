@@ -54,9 +54,11 @@ async function parseCommandLineArguments() {
       .option('interactive', { type: 'boolean', alias: 'i', desc: 'interactively watch and show template updates' })
       .option('output', { type: 'string', alias: 'o', desc: 'write CloudFormation template for requested stacks to the given directory' }))
     .command('bootstrap [ENVIRONMENTS..]', 'Deploys the CDK toolkit stack into an AWS environment', yargs => yargs
-      .option('toolkit-stack-name', { type: 'string', desc: 'the name of the CDK toolkit stack' }))
+      .option('toolkit-stack-name', { type: 'string', desc: 'the name of the CDK toolkit stack' })
+      .option('role-arn', { type: 'string', desc: 'the ARN of CloudFormation service role' }))
     .command('deploy [STACKS..]', 'Deploys the stack(s) named STACKS into your AWS account', yargs => yargs
-      .option('toolkit-stack-name', { type: 'string', desc: 'the name of the CDK toolkit stack' }))
+      .option('toolkit-stack-name', { type: 'string', desc: 'the name of the CDK toolkit stack' })
+      .option('role-arn', { type: 'string', desc: 'the ARN of CloudFormation service role' }))
     .command('destroy [STACKS..]', 'Destroy the stack(s) named STACKS', yargs => yargs
       .option('force', { type: 'boolean', alias: 'f', desc: 'Do not ask for confirmation before destroying the stacks' }))
     .command('diff [STACK]', 'Compares the specified stack with the deployed stack or a local template file', yargs => yargs
@@ -168,6 +170,7 @@ async function initCommandLine() {
   async function main(command: string, args: any): Promise<number | string | {} | void> {
     const toolkitStackName: string = completeConfig().get(['toolkitStackName']) || DEFAULT_TOOLKIT_STACK_NAME;
     const trackVersions: boolean = completeConfig().get(['versionReporting']);
+    const roleArn: string | undefined = completeConfig().get(['roleArn']);
 
     args.STACKS = args.STACKS || [];
     args.ENVIRONMENTS = args.ENVIRONMENTS || [];
@@ -181,10 +184,10 @@ async function initCommandLine() {
         return await diffStack(await findStack(args.STACK), trackVersions, args.template);
 
       case 'bootstrap':
-        return await cliBootstrap(args.ENVIRONMENTS, toolkitStackName);
+        return await cliBootstrap(args.ENVIRONMENTS, toolkitStackName, roleArn);
 
       case 'deploy':
-        return await cliDeploy(args.STACKS, toolkitStackName, trackVersions);
+        return await cliDeploy(args.STACKS, toolkitStackName, trackVersions, roleArn);
 
       case 'destroy':
         return await cliDestroy(args.STACKS, args.force);
@@ -258,8 +261,9 @@ async function initCommandLine() {
    *             provisioned, as a glob filter. If none is provided,
    *             all stacks are implicitly selected.
    * @param toolkitStackName the name to be used for the CDK Toolkit stack.
+   * @param roleArn the ARN of CloudFormation service role.
    */
-  async function cliBootstrap(environmentGlobs: string[], toolkitStackName: string): Promise<void> {
+  async function cliBootstrap(environmentGlobs: string[], toolkitStackName: string, roleArn?: string): Promise<void> {
     if (environmentGlobs.length === 0) {
       environmentGlobs = [ '**' ]; // default to ALL
     }
@@ -275,7 +279,7 @@ async function initCommandLine() {
     await Promise.all(environments.map(async (environment) => {
       success(' ⏳  Bootstrapping environment %s...', colors.blue(environment!.name));
       try {
-        const result = await bootstrapEnvironment(environment!, aws, toolkitStackName);
+        const result = await bootstrapEnvironment(environment!, aws, toolkitStackName, roleArn);
         const message = result.noOp ? ' ✅  Environment %s was already fully bootstrapped!'
                       : ' ✅  Successfully bootstraped environment %s!';
         success(message, colors.blue(environment!.name));
@@ -475,7 +479,7 @@ async function initCommandLine() {
     return response.stacks;
   }
 
-  async function cliDeploy(stackNames: string[], toolkitStackName: string, trackVersions: boolean) {
+  async function cliDeploy(stackNames: string[], toolkitStackName: string, trackVersions: boolean, roleArn?: string) {
     const stackIds = await selectStacks(...stackNames);
     renames.validateSelectedStacks(stackIds);
 
@@ -497,7 +501,7 @@ async function initCommandLine() {
       }
 
       try {
-        const result = await deployStack(stack, aws, toolkitInfo, deployName);
+        const result = await deployStack(stack, aws, toolkitInfo, deployName, roleArn);
         const message = result.noOp ? ` ✅  Stack was already up-to-date, it has ARN ${colors.blue(result.stackArn)}`
                       : ` ✅  Deployment of stack %s completed successfully, it has ARN ${colors.blue(result.stackArn)}`;
         success(message, colors.blue(stack.name));
@@ -699,6 +703,7 @@ async function initCommandLine() {
       plugin: argv.plugin,
       toolkitStackName: argv.toolkitStackName,
       versionReporting: argv.versionReporting,
+      roleArn: argv.roleArn,
     });
   }
 
